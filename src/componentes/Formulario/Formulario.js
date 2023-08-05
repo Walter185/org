@@ -10,6 +10,7 @@ const Formulario = ( props ) => {
   const [puesto, actualizarPuesto ] = useState("")
   const [foto, actualizarFoto ] = useState("")
   const [equipo, actualizarEquipo ] = useState("")
+  const {registrarColaborador} = props // desectructuracion
 
   const manejarEnvio = (e) => {
     e.preventDefault()
@@ -21,7 +22,7 @@ const Formulario = ( props ) => {
       equipo : equipo
     }
     
-    console.log(datosAEnviar)
+    registrarColaborador(datosAEnviar) // ex props.registrarColaborador
     
   }
   return (
