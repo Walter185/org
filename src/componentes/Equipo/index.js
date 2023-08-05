@@ -8,18 +8,33 @@ const Equipo = ( props ) => {
     // es igual a 
     // const colorPrimario = props.datos.colorPrimario
     // const colorSecundario = props.datos.colorSecundario
-    const { colaboradores } = props
+    const { colaboradores, eliminarColaborador, actualizarColor } = props
 
-    return <section className="equipo" style={{ backgroundColor: colorSecundario }}>
+    return <>
+        {colaboradores.length > 0 &&
+        <section className="equipo" style={{ backgroundColor: colorSecundario }}>
+        <input
+            type="color"
+            className="input-color"
+            value={colorSecundario}
+            onChange={(evento) => console.log(evento.target.value)}
+        />
         {/* <h3 style={{ borderColor: props.datos.colorPrimario }}>{props.datos.titulo}</h3> */}
         <h3 style={{ borderColor: colorPrimario }}>{titulo}</h3>
   
         <div className="colaboradores">
             {
-                colaboradores.map( (colaborador, index) => <Colaborador datos={colaborador} key={index}/>)
+                colaboradores.map( (colaborador, index) => <Colaborador 
+                                                            datos={colaborador} 
+                                                            key={index}
+                                                            colorPrimario={colorPrimario}
+                                                            eliminarColaborador={eliminarColaborador}
+                                                            />)
             }
         </div>
     </section>
+        }
+    </>
 }
 
 export default Equipo;
