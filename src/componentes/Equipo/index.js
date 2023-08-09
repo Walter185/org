@@ -9,7 +9,7 @@ const Equipo = ( props ) => {
     // es igual a 
     // const colorPrimario = props.datos.colorPrimario
     // const colorSecundario = props.datos.colorSecundario
-    const { colaboradores, eliminarColaborador, actualizarColor } = props
+    const { colaboradores, eliminarColaborador, actualizarColor, like } = props
 
     return <>
         {colaboradores.length > 0 &&
@@ -31,6 +31,7 @@ const Equipo = ( props ) => {
                                                             key={index}
                                                             colorPrimario={colorPrimario}
                                                             eliminarColaborador={eliminarColaborador}
+                                                            like={like}
                                                             />)
             }
         </div>
